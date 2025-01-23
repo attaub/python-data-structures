@@ -10,18 +10,26 @@ class LinkedList:
         self.head = None
 
     def append(self, val):
+        # create a new node
         new_node = Node(val)
-        if not self.head:
-        # if self.head is None:
-            self.head = new_node  
+
+        # check if the list is empty
+        if self.head is None:
+            self.head = new_node
             return
 
-        last = self.head 
+        # Starts at the head and iterates through the list to find the last node
+        last = self.head
+        print("Current Value:", val, "head:", self.head.val)
 
-        while last.next:  
-            last = last.next 
+        while last.next:
+            last = last.next
+            print("last.next", last.next)
+            print("last.val", last.val)
 
-        last.next = new_node  
+        last.next = new_node
+        print("last.next.val", last.next.val)
+        print("last.next.val", last.next.next)
 
     def print_list(self):
         current = self.head
