@@ -6,6 +6,86 @@ Stack in Python can be implemented using a list,
 or collections.deque class for more efficient operations. 
 
 """
+# collections implements datatypes alternative to dict, list, set, tuple
+
+"""
+https://docs.python.org/3/library/collections.html
+
+namedtuple(): create tuple subclasses with named fields
+dequer: list-like container with fast appends and pops on either end
+ChainMap: dict-like class for creating a single view of multiple mappings
+Counter: dict subclass for counting hashable objects
+OrderedDict: dict subclass that remembers the order entries were added
+defaultdict: dict subclass that calls a factory function to supply missing values
+UserDict: wrapper around dictionary objects for easier dict subclassing
+UserList: wrapper around list objects for easier list subclassing
+UserString: wrapper around string objects for easier string subclassing
+"""
+
+"""
+deque methods: 
+append(x)
+appendleft(x)
+clear()
+copy()
+count(x)
+extend(iterable)
+extendleft(iterable)
+index(x[, start[, stop]])
+insert(i, x)
+pop()
+popleft()
+remove(value)
+reverse()
+rotate(n=1)
+maxlen
+"""
+
+# deque
+from collections import deque
+d = deque()
+d = deque([1, 2, 3, 4, 5])
+
+# append
+d.append(6)
+d.appendleft(0)
+d.clear()
+d = deque([1, 2, 3])
+d_copy = d.copy()
+d = deque([1, 2, 3, 1, 4, 1])
+d.count(1)
+d = deque([1, 2])
+
+d.extend([3, 4, 5])
+d = deque([3, 4, 5])
+d.extendleft([1, 2])
+d = deque([1, 2, 3, 4, 2])
+d.index(2)  # 1
+
+d = deque([1, 2, 3])
+d.insert(1, 1.5) # deque([1, 1.5, 2, 3])
+
+d = deque([1, 2, 3])
+d.pop()  # 3, deque([1, 2])
+
+d = deque([1, 2, 3])
+d.popleft()  # 1, deque([2, 3])
+
+d = deque([1, 2, 3, 4, 3])
+d.remove(3) # deque([1, 2, 4, 3])
+
+d = deque([1, 2, 3, 4])
+d.reverse() # deque([4, 3, 2, 1])
+
+d = deque([1, 2, 3, 4])
+d.rotate(1) # deque([4, 1, 2, 3])
+
+d.rotate(-2) # deque([2, 3, 4, 1])
+
+d = deque([1, 2, 3], maxlen=3)
+d.append(4) # deque([2, 3, 4]),  1 is removed, as maxlen is 3
+
+
 # Stack using Python List
 class StackUsingList:
     def __init__(self):
@@ -54,7 +134,6 @@ print("Is stack empty?", stack_list.is_empty())
 
 
 # Stack using deque
-
 from collections import deque
 class StackUsingDeque:
     def __init__(self):
