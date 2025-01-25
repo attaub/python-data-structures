@@ -2,7 +2,9 @@
 
 ## Introduction to Trees
 """
-A tree data structure simulates a hierarchical tree structure with a set of connected nodes. Each node contains a value and references to its child nodes. 
+A tree data structure simulates a hierarchical tree structure with a set of connected nodes.
+
+Each node contains a value and references to its child nodes. 
 
 Node: The fundamental unit of a tree.
 Root: The top node of the tree.
