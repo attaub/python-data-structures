@@ -1,4 +1,4 @@
-sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+#######################
 thisset = {"apple", "banana", "cherry"}
 thisset = {"apple", "banana", "cherry", True, 1, 2}
 thisset = {"apple", "banana", "cherry"}

@@ -51,8 +51,8 @@ binary_search = BinarySearch(arr, target)
 
 # Iterative search
 result_iterative = binary_search.iterative_search()
-print(f"Target found at index (iterative): {result_iterative}")  # Output: 3
+print(f"Target found at index (iterative): {result_iterative}")  #Output: 3
 
 # Recursive search
 result_recursive = binary_search.recursive_search(arr, target, 0, len(arr) - 1)
-print(f"Target found at index (recursive): {result_recursive}")  # Output: 3
+print(f"Target found at index (recursive): {result_recursive}")  #Output: 3
