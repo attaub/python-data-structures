@@ -1,40 +1,33 @@
-############################################
+#####################
 class Node:
     def __init__(self, val):
         self.val = val
         self.next = None
 
 
+#####################
 class LinkedList:
     def __init__(self):
         self.head = None
 
     def update(self, val):
-        # create a new node
         new_node = Node(val)
 
-        # check if the list is empty
         if self.head is None:
             self.head = new_node
             return
 
-        # Starts at the head and iterates through the list to find the last node
         last = self.head
-        print("Current Value:", val, "head:", self.head.val)
-
         while last.next:
             last = last.next
-            print("last.next", last.next)
-            print("last.val", last.val)
 
         last.next = new_node
-        print("last.next.val", last.next.val)
-        print("last.next.val", last.next.next)
 
     def print_list(self):
         current = self.head
         while current:
-            print(current.val, end=" -> ")
+            # print(current.val, end=" -> ")
+            print(current.val, end=" ---> ")
             current = current.next
         print("None")
 
@@ -62,21 +55,19 @@ class LinkedList:
         return False
 
 
-# Example usage:
-llist = LinkedList()
-llist.append(10)
-llist.append(20)
-llist.append(30)
-llist.append(40)
+#####################
+ll = LinkedList()
+ll.append(10)
+ll.print_list()
+ll.append(20)
+ll.print_list()
+ll.append(30)
+ll.print_list()
+ll.append(40)
+ll.print_list()
 
-print("Linked List:")
-llist.print_list()  # Output: 10 -> 20 -> 30 -> 40 -> None
+ll.search(20)
+ll.search(50)
 
-# Search for a value
-print("Is 20 in the list?", llist.search(20))  # Output: True
-print("Is 50 in the list?", llist.search(50))  # Output: False
-
-# Delete a node
-llist.delete_node(20)
-print("Linked List after deleting 20:")
-llist.print_list()  # Output: 10 -> 30 -> 40 -> None
+ll.delete_node(20)
+ll.print_list()
