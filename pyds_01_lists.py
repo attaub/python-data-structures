@@ -19,7 +19,6 @@ string_list = ['elephant', 'dog', 'cat', 'lion']
 string_list.sort(key=len)  
 sorted(my_list)
 
-# list comprehension
 
 fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
 newlist = [x for x in fruits if "a" in x]
