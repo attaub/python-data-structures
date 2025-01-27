@@ -1,144 +1,41 @@
 #######################
-thisset = {"apple", "banana", "cherry"}
-thisset = {"apple", "banana", "cherry", True, 1, 2}
-thisset = {"apple", "banana", "cherry"}
-thisset.add("orange")
-print(thisset)
+"""
+A = set()
+union()
+intersection()
+difference()
+discard()
+update()
 
-
-thisset = {"apple", "banana", "cherry"}
-tropical = {"pineapple", "mango", "papaya"}
-thisset.update(tropical)
-print(thisset)
-
-thisset = {"apple", "banana", "cherry"}
-thisset.remove("banana")
-print(thisset)
-
-
-thisset = {"apple", "banana", "cherry"}
-thisset.discard("banana")
-print(thisset)
-
-thisset = {"apple", "banana", "cherry"}
-
+"""
+A = {"apple", "banana", "cherry"}
+B = {"apple", "banana", "cherry", True, 1, 2}
+C = {"apple", "banana", "cherry"}
+A.add("orange")
+A.update(B)
+B.remove("banana")
+A.discard("banana")
 x = thisset.pop()
+A.clear()
+del A
+D = A.union(B)
+E = A | B
+F = A.union(B, C, D)
+G = A | B | C | D
 
-print(x)
-
-print(thisset)
-thisset = {"apple", "banana", "cherry"}
-
-thisset.clear()
-
-print(thisset)
-
-
-thisset = {"apple", "banana", "cherry"}
-
-del thisset
-
-print(thisset)
-
-
-set1 = {"a", "b", "c"}
-set2 = {1, 2, 3}
-set3 = set1.union(set2)
-print(set3)
-
-set1 = {"a", "b", "c"}
-set2 = {1, 2, 3}
-
-set3 = set1 | set2
-print(set3)
-
-
-set1 = {"a", "b", "c"}
-set2 = {1, 2, 3}
-set3 = {"John", "Elena"}
-set4 = {"apple", "bananas", "cherry"}
-
-myset = set1.union(set2, set3, set4)
-print(myset)
-
-
-set1 = {"a", "b", "c"}
-set2 = {1, 2, 3}
-set3 = {"John", "Elena"}
-set4 = {"apple", "bananas", "cherry"}
-
-myset = set1 | set2 | set3 |set4
-print(myset)
-
-
-x = {"a", "b", "c"}
 y = (1, 2, 3)
+Z = A.union(y)
 
-z = x.union(y)
-print(z)
+A.update(B)
 
+H = A.intersection(B)
+M = A & B
+A.intersection_update(B)
+N = A.intersection(B)
+M = A.difference(B)
+O = A - B
 
-set1 = {"a", "b" , "c"}
-set2 = {1, 2, 3}
-
-set1.update(set2)
-print(set1)
-
-
-set1 = {"apple", "banana", "cherry"}
-set2 = {"google", "microsoft", "apple"}
-set3 = set1.intersection(set2)
-print(set3)
-
-set1 = {"apple", "banana", "cherry"}
-set2 = {"google", "microsoft", "apple"}
-set3 = set1 & set2
-print(set3)
-
-set1 = {"apple", "banana", "cherry"}
-set2 = {"google", "microsoft", "apple"}
-set1.intersection_update(set2)
-print(set1)
-
-
-set1 = {"apple", 1,  "banana", 0, "cherry"}
-set2 = {False, "google", 1, "apple", 2, True}
-set3 = set1.intersection(set2)
-print(set3)
-
-
-set1 = {"apple", "banana", "cherry"}
-set2 = {"google", "microsoft", "apple"}
-set3 = set1.difference(set2)
-print(set3)
-
-
-set1 = {"apple", "banana", "cherry"}
-set2 = {"google", "microsoft", "apple"}
-set3 = set1 - set2
-print(set3)
-
-
-set1 = {"apple", "banana", "cherry"}
-set2 = {"google", "microsoft", "apple"}
-set1.difference_update(set2)
-print(set1)
-
-
-set1 = {"apple", "banana", "cherry"}
-set2 = {"google", "microsoft", "apple"}
-set3 = set1.symmetric_difference(set2)
-print(set3)
-
-set1 = {"apple", "banana", "cherry"}
-set2 = {"google", "microsoft", "apple"}
-set3 = set1 ^ set2
-print(set3)
-
-
-set1 = {"apple", "banana", "cherry"}
-set2 = {"google", "microsoft", "apple"}
-set1.symmetric_difference_update(set2)
-print(set1)
-
-
+A.difference_update(B)
+P = A.symmetric_difference(B)
+Q = A ^ B
+A.symmetric_difference_update(B)
