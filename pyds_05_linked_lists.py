@@ -55,19 +55,20 @@ class LinkedList:
         return False
 
 
-#####################
+#################
+val_arr = [10, 20, 40, 80, 160]
 ll = LinkedList()
-ll.append(10)
-ll.print_list()
-ll.append(20)
-ll.print_list()
-ll.append(30)
-ll.print_list()
-ll.append(40)
-ll.print_list()
 
+print(val_arr)
+
+for i in range(len(val_arr)):
+    ll.update(i)
+    ll.print_list()
+
+#################
 ll.search(20)
 ll.search(50)
 
+#################
 ll.delete_node(20)
 ll.print_list()
