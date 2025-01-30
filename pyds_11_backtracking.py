@@ -56,7 +56,6 @@ def permute(nums):
             # recursively backtrack
             backtrack(path, used, res)
 
-            # backtrack: undo the choice
             print(f"Backtracking from path: {path}, removing {nums[i]}")
             path.pop()
             used[i] = False
@@ -72,14 +71,20 @@ nums = [1, 2, 3]
 permute(nums)
 
 
+###################################################################
 # generate all subsets of a list.
 def subsets(nums):
     def backtrack(index, path):
-        res.append(path[:])  # add the current subset
+        print(f"Called backtrack({index}, {path})")  
+        res.append(path[:])  
+        print(f"Added subset: {path[:]}")
+        print("=="*40)
         for i in range(index, len(nums)):
-            path.append(nums[i])  # include nums[i]
+            print(f"Appending {nums[i]} to path: {path}")  
+            path.append(nums[i])  
             backtrack(i + 1, path)
-            path.pop()  # exclude nums[i]
+            print(f"Removing {nums[i]} from path: {path}")  
+            path.pop()  
 
     res = []
     backtrack(0, [])
@@ -87,28 +92,57 @@ def subsets(nums):
 
 
 nums = [1, 2, 3]
-print(subsets(nums))  # output: [[], [1], [1, 2], [1, 2, 3], ...]
+sus_sets = subsets(nums)
+print("All subsets:" ,sub_sets)  
 
 ###################################################################
 # n-queens problem: place N queens on an N×N chessboard such that no two queens threaten each other.
 
+#############################################################################
+def solve_n_queens(n):
+    def is_safe(board, row, col):
+        # Check column
+        for i in range(row):
+            if board[i] == col:
+                return False
+        # Check left diagonal
+        for i, j in zip(range(row - 1, -1, -1), range(col - 1, -1, -1)):
+            if board[i] == j:
+                return False
+        # Check right diagonal
+        for i, j in zip(range(row - 1, -1, -1), range(col + 1, n)):
+            if board[i] == j:
+                return False
+        return True
 
-def subsets(nums):
-    def backtrack(index, path):
-        res.append(path[:])  # Add the current subset
-        for i in range(index, len(nums)):
-            path.append(nums[i])  # Include nums[i]
-            backtrack(i + 1, path)
-            path.pop()  # Exclude nums[i]
+    def backtrack(row):
+        if row == n:  # A valid placement is found
+            solutions.append(board[:])
+            return
+        for col in range(n):
+            if is_safe(board, row, col):
+                board[row] = col  # Place queen
+                backtrack(row + 1)  # Move to the next row
+                board[row] = -1  # Backtrack
 
-    res = []
-    backtrack(0, [])
-    return res
+    solutions = []
+    board = [-1] * n  # Track column positions of queens
+    backtrack(0)
+    return solutions
+
+def print_solutions(solutions, n):
+    for solution in solutions:
+        for row in solution:
+            print("".join("Q" if i == row else "." for i in range(n)))
+        print("=" * n)  # Separator for different solutions
+
+n = 8  # Change this for different board sizes
+solutions = solve_n_queens(n)
+print(f"Total solutions for {n}-Queens: {len(solutions)}")
+print_solutions(solutions, n)
 
 
-nums = [1, 2, 3]
-print(subsets(nums))  # output: [[], [1], [1, 2], [1, 2, 3], ...]
-
+#############################################################################
 # sudoku solver: fill a partially completed Sudoku grid.
 def solveSudoku(board):
     def is_valid(num, row, col):
