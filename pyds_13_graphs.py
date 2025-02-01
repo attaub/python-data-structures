@@ -45,26 +45,7 @@ g.add_edge(0, 1)
 g.add_edge(1, 2)
 g.add_edge(2, 3)
 g.display()
-class GraphMatrix:
-    def __init__(self, num_vertices):
-        self.num_vertices = num_vertices
-        self.matrix = [[0] * num_vertices for _ in range(num_vertices)]
 
-    def add_edge(self, u, v, bidirectional=True):
-        self.matrix[u][v] = 1
-        if bidirectional:
-            self.matrix[v][u] = 1
-
-    def display(self):
-        for row in self.matrix:
-            print(row)
-
-# Example Usage
-g = GraphMatrix(4)
-g.add_edge(0, 1)
-g.add_edge(1, 2)
-g.add_edge(2, 3)
-g.display()
 
 ##################################################################
 from collections import deque
@@ -76,7 +57,7 @@ def bfs(graph, start):
     while queue:
         node = queue.popleft()
         if node not in visited:
-            print(node, end=" ")
+            print(node, graph[node],end=" ")
             visited.add(node)
             for neighbor in graph[node]:
                 if neighbor not in visited:
@@ -84,12 +65,12 @@ def bfs(graph, start):
 
 # Example Graph (Adjacency List)
 graph = {
-    1: [2, 3],
-    2: [4, 5],
-    3: [6],
-    4: [],
-    5: [],
-    6: []
+    1: [2, 3, 6],
+    2: [1, 4, 5],
+    3: [1,5,6],
+    4: [2,5],
+    5: [2,3,4],
+    6: [1,3]
 }
 
 print("BFS Traversal:")
@@ -110,7 +91,11 @@ dfs(graph, 1)
 import heapq
 
 def dijkstra(graph, start):
-    min_heap = [(0, start)]  # (cost, node)
+    """ 
+    find the shortest path from a start node
+    to all other nodes in a weighted graph 
+    """
+    min_heap = [(0, start)]  
     distances = {node: float('inf') for node in graph}
     distances[start] = 0
 
