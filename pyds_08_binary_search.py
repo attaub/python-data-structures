@@ -41,3 +41,4 @@ target = 3
 
 result_iterative = iterative_binary_search()
 result_recursive = recursive_binary_search(arr, target, 0, len(arr) - 1)
+

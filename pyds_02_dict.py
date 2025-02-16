@@ -14,10 +14,13 @@ my_dict.items()
 my_dict.keys()
 my_dict.values()
 
-removed_value = my_dict.pop('age')
-removed_item = my_dict.popitem()
-value_set = my_dict.setdefault('city', 'Unknown')
-value_new = my_dict.setdefault('country', 'USA')
+my_dict.pop('age')
+my_dict.popitem()
+my_dict.setdefault('city', 'Unknown')
+my_dict.setdefault('country', 'USA')
+
+
+# list extend is same as dict.updated
 new_data = {'age': 30, 'profession': 'Engineer'}
 my_dict.update(new_data)
 my_dict
@@ -32,16 +35,35 @@ for key, value in my_dict.items():
     print(f'{key}: {value}')
 
 
-from sklearn import datasets
+from sklearn.datasets import load_iris
 import pandas as pd
 
-df = pd.DataFrame()
-iris = datasets.load_iris()
-X = iris.data
-keys = ['sepla_length', 'sepal_width', 'peta_length', 'petal_width']
-my_dict = {}
-for i in range(4):
-    my_dict[f'{keys[i]}'] = X[:, i]
 
-my_dict['label'] = iris.target
-df = pd.DataFrame(my_dict)
+def create_iris_dataframe():
+    iris = load_iris()
+
+    iris_dict = {}
+    features_dict = {}
+
+    for feature in iris.feature_names:
+        f_str = feature.replace(" ", "_")
+        f_str = f_str.replace("_(cm)","")
+        features_dict[f_str] = iris.data[:, i]
+
+    target_dict = {}
+    target_names = iris.target_names
+    lab = 0 
+    for name in target_names:
+        new_label = "is_" + name
+        target_dict[new_label] = (iris.target==lab)*1
+        lab += 1
+
+    target_dict   
+
+    iris_dict
+    iris_dict.update(features_dict)
+    iris_dict.update(target_dict)
+
+    df = pd.DataFrame(iris_dict)
+
+    return df

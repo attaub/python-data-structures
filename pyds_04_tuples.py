@@ -1,6 +1,10 @@
 tup1 = ("apple", "banana", "cherry")
 tup2 = ("apple", "banana", "cherry") + ("orange",)
 
+# indexing
+tup1[3]
+
+# unpacking tuples
 tup = ("apple", "banana", "cherry", "strawberry", "raspberry")
 (green, yellow, *red) = tup
 (green, *tropic, red) = tup

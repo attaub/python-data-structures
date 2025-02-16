@@ -61,8 +61,8 @@ ll = LinkedList()
 
 print(val_arr)
 
-for i in range(len(val_arr)):
-    ll.update(i)
+for val in val_arr:
+    ll.update(val)
     ll.print_list()
 
 #################

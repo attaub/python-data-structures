@@ -1,4 +1,7 @@
 # Process data from both ends towards center or vice versa
+# [1,2,3,4], target=5
+# [1,3,8,13,15,18], target=5
+# [1,3,8,13,15,18], target=15
 
 
 def two_sum(nums, target):

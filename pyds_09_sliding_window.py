@@ -1,13 +1,7 @@
 """
 Sliding windows:
 Used to find subarrays/subsets satisfying a given condition
-Useful to find a contiguous portion of the array or string
-
-window either grows or shrinks as it moves across the sequence
-
-Types: 
-Fixed-size Sliding Window
-Variable-size Sliding Window
+Types: Fixed-size Sliding Window vs Variable-size Sliding Window
 
 Problems:
 maximum sum subarray of size k
